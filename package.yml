@@ -1,78 +1,84 @@
 # SmolC
 matches:
-  - trigger: "sP("
-    replace: "Serial.print("
-  - trigger: "sPL("
-    replace: "Serial.println("
+  - trigger: sP(
+    replace: Serial.print("$|$");
+  - trigger: sPL(
+    replace: Serial.println("$|$");
 
-  - trigger: "aR("
-    replace: "analogRead("
-  - trigger: "dR("
-    replace: "digitalRead("
+  - trigger: aR(
+    replace: analogRead($|$);
+  - trigger: dR(
+    replace: digitalRead($|$);
 
-  - trigger: "aW("
-    replace: "analogWrite("
-  - trigger: "dW("
-    replace: "digitalWrite("
+  - trigger: aW(
+    replace: analogWrite($|$);
+  - trigger: dW(
+    replace: digitalWrite($|$);
 
-  - trigger: "mS("
-    replace: "millis()"
+  - trigger: mS(
+    replace: millis()$|$
+  - trigger: dT(
+    replace: delay($|$);
 
-  - trigger: "dT("
-    replace: "delay("
+  - trigger: pM(
+    replace: pinMode($|$);
 
-  - trigger: "pM("
-    replace: "pinMode("
+  - trigger: vS(
+    replace: "void setup() {
+      $|$
+    }"
+  - trigger: vL(
+    replace: "void loop() {
+      $|$
+    }"
 
-  - trigger: "vS("
-    replace: "void setup() {"
-  - trigger: "vL("
-    replace: "void loop() {"
+  - trigger: coB
+    replace: const bool $|$;
+  - trigger: coI
+    replace: const int $|$;
+  - trigger: coF
+    replace: const float $|$;
+  - trigger: coC
+    replace: const char $|$;
 
-  - trigger: "coB "
-    replace: "const bool "
-  - trigger: "coI "
-    replace: "const int "
-  - trigger: "coF "
-    replace: "const float "
-  - trigger: "coC "
-    replace: "const char "
+  - trigger: cxB
+    replace: constexpr bool $|$;
+  - trigger: cxI
+    replace: constexpr int $|$;
+  - trigger: cxF
+    replace: constexpr float $|$;
+  - trigger: cxC
+    replace: constexpr char $|$;
 
-  - trigger: "cxB "
-    replace: "constexpr bool "
-  - trigger: "cxI "
-    replace: "constexpr int "
-  - trigger: "cxF "
-    replace: "constexpr float "
-  - trigger: "cxC "
-    replace: "constexpr char "
+  - trigger: bT
+    replace: bool $|$;
+  - trigger: iT
+    replace: int $|$;
+  - trigger: fT
+    replace: float $|$;
+  - trigger: cT
+    replace: char $|$;
 
-  - trigger: "bT "
-    replace: "bool "
-  - trigger: "iT "
-    replace: "int "
-  - trigger: "fT "
-    replace: "float "
-  - trigger: "cT "
-    replace: "char "
+  - trigger: tr
+    replace: true$|$
+  - trigger: fl
+    replace: false$|$
 
-  - trigger: "tr "
-    replace: "true"
-  - trigger: "fl "
-    replace: "false"
+  - trigger: tD
+    replace: typedef $|$;
 
-  - trigger: "tD "
-    replace: "typedef "
+  - trigger: rV(
+    replace: return $|$;
 
-  - trigger: "rV("
-    replace: "return "
+  - trigger: el(
+    replace: "else {
+      $|$
+    }"
 
-  - trigger: "el("
-    replace: "else {"
-  - trigger: "wh("
-    replace: "while ("
+  - trigger: wh(
+    replace: while ($|$) {
 
-  - trigger: "brk;"
-    replace: "break;"
-  - trigger: "cnt;"
-    replace: "continue;"
+  - trigger: brk;
+    replace: break;$|$
+  - trigger: cnt;
+    replace: continue;$|$
