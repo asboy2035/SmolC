@@ -1,33 +1,53 @@
 #!/bin/bash
 
-echo "💅 Installing SmolC from GitHub..."
+echo "💅 Installing or Updating SmolC..."
 
-# Get Espanso package path dynamically
+# Get espanso packages path
 PKG_DIR=$(espanso path | grep "Packages:" | cut -d':' -f2- | xargs)
+DEST="$PKG_DIR/smolc"
+TEMP_DIR="/tmp/smolc-temp"
 
-if [ -z "$PKG_DIR" ]; then
-  echo "❌ Could not detect Espanso package path!"
+# Clone GitHub version to temp dir
+echo "📥 Cloning latest SmolC from GitHub..."
+git clone --quiet https://github.com/asboy2035/SmolC.git "$TEMP_DIR"
+
+# Get GitHub version from _manifest.yml
+if [ ! -f "$TEMP_DIR/_manifest.yml" ]; then
+  echo "❌ Could not find _manifest.yml in GitHub repo! Please contact the maintainer: ash@asboy2035.com"
+  rm -rf "$TEMP_DIR"
   exit 1
 fi
+GITHUB_VERSION=$(grep "^version:" "$TEMP_DIR/_manifest.yml" | cut -d'"' -f2)
 
-# Define destination folder
-DEST="$PKG_DIR/smolc"
+# Check if already installed
+if [ -f "$DEST/_manifest.yml" ]; then
+  INSTALLED_VERSION=$(grep "^version:" "$DEST/_manifest.yml" | cut -d'"' -f2)
 
-echo "📦 Installing to: $DEST"
+  echo "🧾 Installed version: $INSTALLED_VERSION"
+  echo "🌐 GitHub version: $GITHUB_VERSION"
 
-# Clone the repo to a temp directory
-git clone https://github.com/asboy2035/SmolC.git /tmp/smolc-temp
+  if [ "$(printf "%s\n%s" "$GITHUB_VERSION" "$INSTALLED_VERSION" | sort -V | tail -n1)" = "$INSTALLED_VERSION" ]; then
+    echo "✅ SmolC is already up-to-date. Check back later!"
+    rm -rf "$TEMP_DIR"
+    exit 0
+  else
+    echo "🔁 Updating installed SmolC version $GITHUB_VERSION..."
+    rm -rf "$DEST"
+  fi
+else
+  echo "✨ SmolC not installed yet. Installing fresh!"
+fi
 
-# Make sure the folder exists
+# Create destination directory
 mkdir -p "$DEST"
 
-# Copy the package files
-cp -r /tmp/smolc-temp/* "$DEST"
+# Copy new files
+cp -r "$TEMP_DIR"/* "$DEST"
 
-# Clean up temp files
-rm -rf /tmp/smolc-temp
+# Clean up temp
+rm -rf "$TEMP_DIR"
 
-# Restart Espanso
+# Restart espanso
 espanso restart
 
-echo "✅ SmolC installed successfully!"
+echo "✅ SmolC v$GITHUB_VERSION installed successfully!"
