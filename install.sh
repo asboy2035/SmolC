@@ -2,24 +2,32 @@
 
 echo "💅 Installing SmolC from GitHub..."
 
-# Clone the repo
+# Get Espanso package path dynamically
+PKG_DIR=$(espanso path | grep "Packages:" | cut -d':' -f2- | xargs)
+
+if [ -z "$PKG_DIR" ]; then
+  echo "❌ Could not detect Espanso package path!"
+  exit 1
+fi
+
+# Define destination folder
+DEST="$PKG_DIR/smolc"
+
+echo "📦 Installing to: $DEST"
+
+# Clone the repo to a temp directory
 git clone https://github.com/asboy2035/SmolC.git /tmp/smolc-temp
 
-# Get Espanso packages path
-ESPANSO_PATH=$(espanso path | grep -i 'config' | head -n 1)
-PKG_DIR="$ESPANSO_PATH/packages/smolc"
+# Make sure the folder exists
+mkdir -p "$DEST"
 
-# Make sure the path exists
-mkdir -p "$PKG_DIR"
+# Copy the package files
+cp -r /tmp/smolc-temp/* "$DEST"
 
-# Copy to the packages directory
-cp -r /tmp/smolc-temp/* "$PKG_DIR"
-
-# Cleanup temp
+# Clean up temp files
 rm -rf /tmp/smolc-temp
 
 # Restart Espanso
 espanso restart
 
-echo "SmolC installed successfully!"
-echo "You can now smolify your C with max slay."
+echo "✅ SmolC installed successfully!"
