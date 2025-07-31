@@ -31,11 +31,14 @@ Made for use with [Espanso](https://espanso.org) – the ultimate open-source te
 
 ## 🛠️ Installation
 #### Automatic
-If you're on Linux/macOS, simply run `install.sh`.
+If you're on Linux/macOS, simply run this command:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/asboy2035/SmolC/main/install.sh)
+```
 
 #### Manual
 1. Clone or download this repo
-2. Move it to your Espanso packages folder:
+2. Move it to your Espanso packages folder using your file manager or the command line:
 
 ```bash
 # Example path on Linux/macOS
