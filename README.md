@@ -33,7 +33,7 @@ Made for use with [Espanso](https://espanso.org) – the ultimate open-source te
 #### Automatic
 If you're on Linux/macOS, simply run this command:
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/asboy2035/SmolC/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/asboy2035/SmolC/refs/heads/master/install.sh)
 ```
 
 #### Manual
