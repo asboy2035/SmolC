@@ -24,13 +24,9 @@ matches:
     replace: pinMode($|$);
 
   - trigger: vS(
-    replace: "void setup() {
-      $|$
-    }"
+    replace: void setup() { $|$ }
   - trigger: vL(
-    replace: "void loop() {
-      $|$
-    }"
+    replace: void loop() { $|$ }
 
   - trigger: coB
     replace: const bool $|$;
@@ -59,11 +55,6 @@ matches:
   - trigger: cT
     replace: char $|$;
 
-  - trigger: tr
-    replace: true$|$
-  - trigger: fl
-    replace: false$|$
-
   - trigger: tD
     replace: typedef $|$;
 
@@ -71,9 +62,7 @@ matches:
     replace: return $|$;
 
   - trigger: el(
-    replace: "else {
-      $|$
-    }"
+    replace: else { $|$ }
 
   - trigger: wh(
     replace: while ($|$) {

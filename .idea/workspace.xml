@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="994b71a6-c001-4836-9b9d-9c4850437599" name="Changes" comment="fix structure">
+    <list default="true" id="994b71a6-c001-4836-9b9d-9c4850437599" name="Changes" comment="add carets">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.yml" beforeDir="false" afterPath="$PROJECT_DIR$/package.yml" afterDir="false" />
     </list>
@@ -12,6 +13,14 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="NewLua" />
+        <option value="MarkDown File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +90,8 @@
       <workItem from="1753907468740" duration="562000" />
       <workItem from="1753908033428" duration="149000" />
       <workItem from="1753908184950" duration="77000" />
-      <workItem from="1753908264303" duration="73000" />
+      <workItem from="1753908264303" duration="745000" />
+      <workItem from="1753965356957" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="fix structure">
       <option name="closed" value="true" />
@@ -99,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753907474889</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add carets">
+      <option name="closed" value="true" />
+      <created>1753908357193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753908357193</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix structure" />
+    <MESSAGE value="add carets" />
+    <option name="LAST_COMMIT_MESSAGE" value="add carets" />
   </component>
 </project>
