@@ -1,73 +1,102 @@
 # SmolC
 matches:
   - trigger: sP(
+    label: Serial Print
     replace: Serial.print("$|$");
   - trigger: sPL(
+    label: Serial Print Line
     replace: Serial.println("$|$");
 
   - trigger: aR(
+    label: Analog Read
     replace: analogRead($|$);
   - trigger: dR(
+    label: Digital Read
     replace: digitalRead($|$);
 
   - trigger: aW(
+    label: Analog Write
     replace: analogWrite($|$);
   - trigger: dW(
+    label: Digital Write
     replace: digitalWrite($|$);
 
   - trigger: mS(
+    label: Millis
     replace: millis()$|$
   - trigger: dT(
+    label: Delay
     replace: delay($|$);
 
   - trigger: pM(
+    label: Pin Mode
     replace: pinMode($|$);
 
   - trigger: vS(
+    label: Void Setup
     replace: void setup() { $|$ }
   - trigger: vL(
+    label: Void Loop
     replace: void loop() { $|$ }
 
   - trigger: coB
+    label: Const Bool
     replace: const bool $|$;
   - trigger: coI
+    label: Const Int
     replace: const int $|$;
   - trigger: coF
+    label: Const Float
     replace: const float $|$;
   - trigger: coC
+    label: Const Char
     replace: const char $|$;
 
   - trigger: cxB
+    label: Constexpr Bool
     replace: constexpr bool $|$;
   - trigger: cxI
+    label: Constexpr Int
     replace: constexpr int $|$;
   - trigger: cxF
+    label: Constexpr Float
     replace: constexpr float $|$;
   - trigger: cxC
+    label: Constexpr Char
     replace: constexpr char $|$;
 
   - trigger: bT
+    label: Bool Type
     replace: bool $|$;
   - trigger: iT
+    label: Int Type
     replace: int $|$;
   - trigger: fT
+    label: Float Type
     replace: float $|$;
   - trigger: cT
+    label: Char Type
     replace: char $|$;
 
   - trigger: tD
+    label: Typedef
     replace: typedef $|$;
 
   - trigger: rV(
+    label: Return Statement
     replace: return $|$;
 
   - trigger: el(
+    label: Else Block
     replace: else { $|$ }
 
   - trigger: wh(
+    label: While Loop
     replace: while ($|$) {
 
   - trigger: brk;
+    label: Break Statement
     replace: break;$|$
   - trigger: cnt;
+    label: Continue Statement
     replace: continue;$|$

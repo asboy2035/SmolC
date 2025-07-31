@@ -29,12 +29,13 @@ Made for use with [Espanso](https://espanso.org) – the ultimate open-source te
 > ✨ More expansions are available — check out `package.yml` for the full glow-up.
 
 
-## 🛠️ Installation
+## 🛠️ Installation/Updating
 #### Automatic
 If you're on Linux/macOS, simply run this command:
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/asboy2035/SmolC/refs/heads/master/install.sh)
 ```
+It will check for installed versions and updates, and do the most appropriate actions.
 
 #### Manual
 1. Clone or download this repo
